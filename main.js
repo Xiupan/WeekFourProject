@@ -1,14 +1,9 @@
-// 1. First select and store the elements you'll be working with
-// 2. Create your `onSubmit` event for getting the user's search term
-// 3. Create your `fetch` request that is called after a submission
-// 4. Create a way to append the fetch results to your page
-// 5. Create a way to listen for a click that will play the song in the audio play
+// TODO: Styling with CSS
 
-function clearBox(htmlSelector)
+function clearBox(htmlSelector) // function that clears an area of HTML
 {
     document.querySelector(htmlSelector).innerHTML = '';
 }
-
 
 function searchFunction(searchCriteria){
   fetch(`https://api.soundcloud.com/tracks?client_id=${apikey}&q=${searchCriteria}`)
@@ -25,9 +20,6 @@ function searchFunction(searchCriteria){
 
       for(var i = 0; i < json.length; ++i){
         console.log(json[i]);
-
-        // TODO: set url to the src of 'music-player' in order to get the audio player to work
-        // might need to change permalink_url to stream_url
 
         var artistName = json[i].user.username;
         console.log('Artist Name: ' + artistName);
@@ -80,7 +72,7 @@ function searchFunction(searchCriteria){
       }
       injectStaticHtml(staticHtml);
 
-      var artistDiv = document.querySelectorAll('.result-artist')
+      var artistDiv = document.querySelectorAll('.result-artist') // plays the song clicked on
       for (var p = 0; p < artistDiv.length; p++) {
         let artistUrl = artistDiv[p].id
         artistDiv[p].addEventListener('click', function(event){
@@ -93,7 +85,7 @@ function searchFunction(searchCriteria){
     })
 }
 
-var searchString = document.querySelector('.search-form').addEventListener('submit', function(event){
+var searchString = document.querySelector('.search-form').addEventListener('submit', function(event){ // runs the search function after 'submit'
   event.preventDefault();
   var searchString = document.querySelector('#searchBox').value;
   console.log(searchString);
