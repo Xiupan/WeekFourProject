@@ -30,14 +30,20 @@ function searchFunction(searchCriteria){
         var artistPageUrl = json[i].permalink_url;
         console.log('Artist Page URL: ' + artistPageUrl);
 
-        var artistPictureUrl = json[i].artwork_url;
-        console.log('Artist ProfilePic URL: ' + artistPictureUrl);
+        var artistPictureUrl = '';
+        if(json[i].artwork_url != null){
+          artistPictureUrl = json[i].artwork_url;
+          console.log('Artist ProfilePic URL: ' + artistPictureUrl);
+        } else {
+          artistPictureUrl = "http://lorempixel.com/100/100/abstract"
+        }
+
 
         var artistID = json[i].id;
         console.log('ArtistID: ' + artistID);
 
         var streamUrl = json[i].stream_url + '?client_id=' + apikey;
-        console.log(streamUrl)
+        console.log(streamUrl);
 
         var htmlClear = '';
 
@@ -47,10 +53,10 @@ function searchFunction(searchCriteria){
               <img src="${artistPictureUrl}" alt="${artistName}">
             </div>
             <div class="result-track-title">
-              Song Title: ${trackTitle}
+              ${trackTitle}
             </div>
             <div class="result-artist-name">
-              Artist: ${artistName}
+              by ${artistName}
             </div>
           </div>
         `

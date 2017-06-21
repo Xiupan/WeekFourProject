@@ -1,5 +1,22 @@
+*{
+  font-family: 'Raleway', 'Ubuntu', sans-serif;
+}
+
 body {
   background-color: #60d9f1;
+}
+
+h1{
+  text-align: center;
+}
+
+#searchBox{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.search{
+  margin-top: 2%;
+  margin-bottom: 5%;
 }
 
 .results{
@@ -11,8 +28,31 @@ body {
 
 .results-heading{
   flex-basis: 100%;
+  border-top: 1px solid black;
 }
 
 .result-artist{
   flex-basis: 20%;
+  text-align: center;
+  padding: 1%;
+  margin: 2.5%;
+  border: 1px solid black;
+  box-sizing: border-box;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+.result-artist:hover{
+  background-color: white;
+}
+
+.result-artist:active{
+  box-shadow: 5px 5px 2.5px #888888;
+}
+
+.result-artist-picture{
+  margin-bottom: 2%;
+}
+
+.result-track-title{
+  margin-bottom: 5%;
 }
